@@ -77,6 +77,19 @@ return [
             "prefix" => "",
             "schema" => "public",
             "sslmode" => "prefer",
+        ],
+
+        "pois" => [
+            "driver" => "pgsql",
+            "host" => env("DB_HOST", "localhost"),
+            "port" => env("DB_PORT", "5432"),
+            "database" =>  "germany",
+            "username" => env("DB_USERNAME", "tilonet"),
+            "password" => env("DB_PASSWORD", "ocellatus"),
+            "charset" => "utf8",
+            "prefix" => "",
+            "schema" => "public",
+            "sslmode" => "prefer",
         ]
 
     ],

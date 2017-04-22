@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\GpxTrackController;
-
+use App\Http\Controllers\PoiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,15 +14,27 @@ use App\Http\Controllers\GpxTrackController;
 |
 */
 // http://192.168.2.103/api/gpxtrack?api_token=IhUqhRimreFzOFvaJNPHhKUvhBTzmRiUkNAgalHoYiLqKREBxbZLfOnUxDTn
-Route::group([ 'middleware' => 'auth:api'], function () {
-    /*Route::resource('/gpxtrack', 'GpxTrackController',
-        ['except' => ['create', 'store', 'update', 'destroy']]);*/
+ Route::group([ 'middleware' => 'auth:api'], function () {
 
-    Route::get('gpxtrack/{user}', function () {
+    // Route::get('gpxtrack', 'index@GpxTrackController');
+
+     Route::get('gpxtrack', function () {
+         $con = new GpxTrackController();
+         $con->index();
+     });
+
+     Route::get('poi', function () {
+         $con = new PoiController();
+         $con->index();
+     });
+
+   /* Route::get('gpxtrack', function () {
         return Response::json(['status' => 'test']);
-    });
+    }); */
 
 });
+
+ /*
 
 
 Route::get('/redirect', function () {
@@ -52,7 +64,9 @@ Route::get('/callback', function (Request $request) {
     return json_decode((string) $response->getBody(), true);
 });
 
-/*Route::middleware('auth:api')->get('/usertest', function () {
+
+
+Route::middleware('auth:api')->get('/usertest', function () {
    return Response::json(['status' => 'test']);
 });
 
@@ -60,4 +74,5 @@ Route::resource('gpxtrack', 'GpxTrackController',
                 ['except' => ['create', 'store', 'update', 'destroy']]);
 
 Route::resource('poi', 'PoiController',
-                ['only' => ['index', 'show']]);*/
+                ['only' => ['index', 'show']]);
+*/

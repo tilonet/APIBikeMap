@@ -9,7 +9,7 @@ class GpxTrackController extends Controller
 {
     
 	//GET  api/gpxtrack list ALL tracks
-    public function index($client){
+    public function index(){
 
         $model = new GpxTrackModel;
         $model->getTrackNames();

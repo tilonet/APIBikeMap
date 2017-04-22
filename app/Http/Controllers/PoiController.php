@@ -7,12 +7,11 @@ use Illuminate\Http\Request;
 
 class PoiController extends Controller
 {
-	//GET  api/gpxtrack list ALL tracks
-    public function index(){  
+	//GET  api/poi list ALL pois
+    public function index(){
 
-        
-        dd("jo");
-    	return PoiModel::all();
+        $model = new PoiModel();
+        $model->getPOI();
 
 
 
