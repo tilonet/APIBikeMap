@@ -9,7 +9,7 @@ class PoiModel extends Model
 {
 
 
-   public function getPOI(){
+   public function getPOI($radius, $lat, $lon){
 
       $POIArray = [];
 
@@ -31,7 +31,7 @@ class PoiModel extends Model
                   "FROM planet_osm_point 
                   
                   WHERE ST_DWITHIN(way,
-                    ST_TRANSFORM(ST_SETSRID(ST_MAKEPOINT(7.60833,52.0917),4326),900913), 5000)
+                    ST_TRANSFORM(ST_SETSRID(ST_MAKEPOINT(".$lon.",".$lat."),4326),900913), ".$radius.")
                      
                      AND (
                          shop = 'supermarket'
@@ -57,15 +57,19 @@ class PoiModel extends Model
 
                      );";
 
+
+
        $result = DB::connection('pois')->select(DB::raw($query));
 
        if(!empty($result)){
 
            foreach ($result as $idex => $poiObject){
 
-               $POIArray[$poiObject->type][$poiObject->osm_id]['name'] = $poiObject->name;
-               $POIArray[$poiObject->type][$poiObject->osm_id]['lat'] = $poiObject->lat;
-               $POIArray[$poiObject->type][$poiObject->osm_id]['long'] = $poiObject->long;
+               if(!empty($poiObject->name))  $POIArray[$poiObject->osm_id]['name'] = $poiObject->name;
+               if(!empty($poiObject->osm_id))$POIArray[$poiObject->osm_id]['id'] = (string)$poiObject->osm_id;
+               if(!empty($poiObject->lat))   $POIArray[$poiObject->osm_id]['lat'] = $poiObject->lat;
+               if(!empty($poiObject->long))  $POIArray[$poiObject->osm_id]['long'] = $poiObject->long;
+               if(!empty($poiObject->type))  $POIArray[$poiObject->osm_id]['type'] = $poiObject->type;
 
                $pairs = explode(",", str_replace("\"" , "", $poiObject->tags));
                $array = [];
@@ -77,8 +81,9 @@ class PoiModel extends Model
                        $array[trim($keyVal[0])] = trim($keyVal[1]);
                    }
                }
-               $POIArray[$poiObject->type][$poiObject->osm_id]['tags'] = $array;
-
+               if(!empty($array)) {
+                   $POIArray[$poiObject->osm_id]['tags'] = $array;
+               }
            }
 
            echo json_encode(["statusCode" => 200, "response" => (array)$POIArray ]);

@@ -13,7 +13,7 @@ use App\Http\Controllers\PoiController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-// http://192.168.2.103/api/gpxtrack?api_token=IhUqhRimreFzOFvaJNPHhKUvhBTzmRiUkNAgalHoYiLqKREBxbZLfOnUxDTn
+// http://192.168.2.103/api/poi?lat=0.0&lon=0.0&radius=0&api_token=IhUqhRimreFzOFvaJNPHhKUvhBTzmRiUkNAgalHoYiLqKREBxbZLfOnUxDTn
  Route::group([ 'middleware' => 'auth:api'], function () {
 
     // Route::get('gpxtrack', 'index@GpxTrackController');
