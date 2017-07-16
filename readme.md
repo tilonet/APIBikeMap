@@ -1,40 +1,43 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+1. Thema der Projektarbeit
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+ Maschinelle Bildkategorisierung mit Weboberfläche im Administrationsbereich und Aufbereitung der gewonnen Informationen als Bilduntertitel  
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+2. Geplanter Bearbeitungszeitraum
+  
+Beginn: ? 
+Ende: ?
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+3. Beschreibung
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+ Der erste Eindruck lässt sich nicht korrigieren. Und genau dieser erste Eindruck ist sehr stark geprägt von Bildern. Ein falsch platziertes Bild und der potenzielle Kunde eines Ferienhauses ist verloren. 
 
-## Learning Laravel
+ Ein Unternehmen wie tourist.online.de, mit 1 Millionen Ferienhausobjekten und 10 Bildern pro Objekt, steht vor dem großen Problem eine so große Menge an Bildern zu prüfen und zu verwalten. Eine Datenmenge, die manuell nicht zu bewältigen ist.
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+ Mein Projekt soll es ermöglichen, Bilder automatisiert zu verarbeiten. Zur Anwendung soll die Programmierschnittstelle (API) Cloud Vision von Google kommen. Diese ermöglicht es zu den Bildern mit Hilfe von maschinellem Lernen basierende Bilderkennung Labels zu generieren. Die erzeugten Labels sollen dann in einer separaten MySQL Datenbank gespeichert werden. Das Projekt beinhaltet eine Weboberfläche für Administratoren, um Bilder der Cloud Vison API zuführen zu können und die im JSON Format erhaltenen Ergebnisse in die Datenbank zu überführen. Des Weiteren Ergebnisbilder nach einzelnen Labels zu durchsuchen. Ein weiteres Ziel ist es, die gewonnenen Informationen dem Kunden darzustellen. In diesem Zusammenhang ist geplant Bildunterschriften aus den Labels automatisiert zu Erzeugen. Um dieses Ziel zu erreichen, soll eine weitere Programmierschnittstelle der Firma Ax Semantic zum Einsatz kommen, welche sich mit dem automatisierten Erzeugen von Texten befasst.  
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+ 4. Umfeld
 
-## Contributing
+ Das Projekt wird in den Räumen der tourist-online-de GmbH in Münster durchgeführt. Mein Arbeitsplatz verfügt über die benötigten Resourcen für die Umsetzung und Testumgebung.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+ 5. Projektphasen mit Zeitplanung
 
-## Security Vulnerabilities
+ 1.Projektplanung (9 Stunden)
+ 	1.1. Soll/Ist-Konzept ? (3 Stunden)
+ 	1.2. Konzeptionelles Datenbankdesign  (1 Stunde)
+ 	1.3  Logisches Datenbankdesign (2 Stunden)
+ 	1.4  Oberflächen Mockup ( 1 Stunde)
+ 	1.5  Evaluierung der benötigten API (2 Stunden)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+ 2. Programmierung (33 Stunden)
 
-## License
+ 	2.1 Grundlayout erstellen und Einbinden (5 Stunden)
+ 	2.2 Schnitstellen Verbindungen Einrichten (4 Stunden)
+ 	2.3 Datenbankanbindung einrichten (4 Stunden)
+ 	2.4 Request an Schnittstellen umsetzen (4 Stunden)
+ 	2.5 Ergebnis der Schnittstellen JSON verarbeiten (5 Stunden)
+ 	2.6 Auslesen der Daten aus der Datenbank (2 Stunden)
+ 	2.7 Suchlogik programmieren (5 Stunden)
+ 3. Test/ Fehlerbehebung (7 Stunden)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+ 4. Projektdokumentation (15 Stunden)
