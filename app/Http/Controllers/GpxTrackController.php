@@ -2,35 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\GpxTrackModel;
 
-class GpxTrackController extends Controller
-{
+class GpxTrackController extends Controller{
     
-	//GET  api/gpxtrack list ALL tracks
+	//GET list ALL tracks stored in db
     public function index(){
 
-        $model = new GpxTrackModel;
-        $model->getTrackNames();
+        try {
 
-       /* $response = Request::request('GET', '/api/usertest', [
-            'headers' => [
-                'Accept' => 'application/json',
-                'Authorization' => 'Bearer rC5LLxrKcZHczFhb7Kx6tuP1dOWVK8O503VqOqYm',
-            ],
-        ]);
+            $model = new GpxTrackModel;
 
-        dd($response);*/
-    }
+            if(!empty($tracks = $model->getTrackNames())){
+                echo "{\"statusCode\" : 200, \"response\" : ".$tracks."}";
+            }
+            else{
+                echo "{\"statusCode\" : 204, \"response\" :\" no Content \"}";
+            }
+        }
+        //catching all errors to return valid JSON in error case
+        catch (\Exception $e) {
 
-    //GET api/gpxtrack/TRACKID show one 
-    public function show(){
-
-    }
-
-    public function edit(){
-
-
+            echo "{\"statusCode\" : 500, \"response\" :\" Server Error \"}";
+        }
     }
 }

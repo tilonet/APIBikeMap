@@ -57,8 +57,6 @@ class PoiModel extends Model
 
                      );";
 
-
-
        $result = DB::connection('pois')->select(DB::raw($query));
 
        if(!empty($result)){
@@ -86,9 +84,7 @@ class PoiModel extends Model
                }
            }
 
-           echo json_encode(["statusCode" => 200, "response" => (array)$POIArray ]);
+           echo json_encode( (array)$POIArray );
        }
-
-
    }
 }
