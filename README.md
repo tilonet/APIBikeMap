@@ -12,6 +12,6 @@ In der aktuellen Version ist es möglich einen GPX Track anzuzeigen und die aktu
 
 Die App wurde erfolgreich auf einer ersten größeren Tour auf dem Elberadweg getestet.
 
-![alt text](https://raw.githubusercontent.com/tilonet/APIBikeMap/blob/master/appimg.png)
+![alt text](https://raw.githubusercontent.com/tilonet/APIBikeMap/master/appimg.png)
 
 
